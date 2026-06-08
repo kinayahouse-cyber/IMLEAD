@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* The mobile nav drawer is parked off-screen to the right when closed.
+     `clip` contains that overflow without creating a scroll container, so it
+     leaves position:sticky (valeurs / FAQ) working — unlike overflow:hidden. */
+  html {
+    overflow-x: clip;
+  }
+}
+
+/* ── Bridge utilities ──
+   Marker class used on hero sections in the ported markup. Layout for those
+   sections is driven by the adjacent Tailwind utilities (min-h-screen, flex…). */
+@layer components {
+  .page-section {
+    @apply relative;
+  }
+}
