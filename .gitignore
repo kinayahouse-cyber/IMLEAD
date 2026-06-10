@@ -10,3 +10,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .vite
+
+# Generated standalone preview artifacts
+imlead-site.html
+imlead-mobile-preview.html

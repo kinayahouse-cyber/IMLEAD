@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, HashRouter } from 'react-router-dom'
 import App from './App.jsx'
 
 // Order matters: the legacy plain CSS (index.css = desktop, mobile.css = media
@@ -11,10 +11,14 @@ import './styles/index.css'
 import './styles/mobile.css'
 import './styles/tailwind.css'
 
+// Use hash-based routing when the page is opened directly from the file system
+// (the single-file build), and clean URLs when served over http(s).
+const Router = window.location.protocol === 'file:' ? HashRouter : BrowserRouter
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <Router>
       <App />
-    </BrowserRouter>
+    </Router>
   </React.StrictMode>,
 )
