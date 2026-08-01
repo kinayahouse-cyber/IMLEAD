@@ -13,22 +13,22 @@ const services = [
   {
     num: '01',
     name: ['Pilotage &', 'Direction de Projet'],
-    desc: 'Sécurisation complète du chantier de la phase conception à la livraison. Budget, planning, qualité.',
+    desc: "Sécurisation complète du projet de la phase d'étude de faisabilité à la livraison du projet. Budget, planning, qualité.",
   },
   {
     num: '02',
-    name: ['Advisory, Audit &', 'Valorisation'],
-    desc: "Optimisation financière, due diligence, arbitrage d'actifs. La rigueur au service du ROI.",
+    name: ['Conseil, Audit et', 'Valorisation'],
+    desc: 'Optimisation financière, due diligence. La rigueur au service du ROI.',
   },
   {
     num: '03',
-    name: ['Hospitality &', 'Mise en Exploitation'],
-    desc: "Pré-ouverture, brand compliance, spécificités luxe et resorts. L'excellence opérationnelle garantie.",
+    name: ['Expertise hôtelière &', 'Mise en Exploitation'],
+    desc: "Audit de conformité, programmation hôtelière, standards hôteliers internationaux, accompagnement à la mise en exploitation. L'expertise au service de l'excellence opérationnelle.",
   },
 ]
 
 const stats = [
-  { num: '12', sup: '+', label: "Années d'expertise" },
+  { num: '11', sup: '+', label: "Années d'expertise" },
   { num: '5000', sup: '+', label: 'Clefs livrées' },
   { num: '4', sup: '', label: "Pôles d'expertise" },
   { num: '100', sup: '%', label: 'Indépendant & aligné' },
@@ -43,18 +43,18 @@ export default function Home() {
           <div className="anim-text delay-0 mb-auto">
             <div style={eyebrowStyle}>
               <span style={{ width: '2rem', height: 1, background: 'var(--bronze)', display: 'block' }} />
-              AMO · Gouvernance de projet · Hospitality
+              Assistance à maîtrise d'ouvrage · Gouvernance de projet · Expertise hôtelière
             </div>
           </div>
           <h1 className="hero-title anim-text delay-1">
-            Gouverner
+            Piloter
             <br />
-            <em>pour valoriser.</em>
+            <em>pour créer de la valeur.</em>
           </h1>
           <p className="hero-sub anim-text delay-2">
-            IMLEAD représente le maître d'ouvrage dans les projets immobiliers et hôteliers à forts
-            enjeux. Nous structurons la décision, maîtrisons les risques et protégeons la valeur du
-            projet jusqu'à sa livraison.
+            IMLEAD représente le maître d'ouvrage dans les projets immobiliers et hôteliers. Nous
+            structurons la décision, maîtrisons les risques et protégeons la valeur du projet jusqu'à
+            sa livraison.
           </p>
           <a className="btn-primary anim-text delay-3">
             <span>Obtenir mon diagnostic →</span>
@@ -99,7 +99,7 @@ export default function Home() {
         <h2 className="section-title">
           Trois expertises,
           <br />
-          une même <em>exigence de maîtrise.</em>
+          <em>une même exigence.</em>
         </h2>
         <div className="services-grid max-md:!grid-cols-1">
           {services.map((s) => (

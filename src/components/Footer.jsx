@@ -18,7 +18,8 @@ export default function Footer() {
             </svg>
           </div>
           <p className="footer-tagline">
-            La gouvernance comme levier de performance. AMO, Conseil, Real Estate.
+            La maîtrise des projets au service de la performance. Assistance à maîtrise d'ouvrage ·
+            Gouvernance de projet · Expertise hôtelière.
           </p>
         </div>
 
@@ -51,17 +52,34 @@ export default function Footer() {
 
         <div>
           <div className="footer-col-title">Contact</div>
-          <ul className="footer-links">
-            <li>
-              <a>Alger, Algérie</a>
-            </li>
-            <li>
-              <a href="mailto:contact@im-lead.com">contact@im-lead.com</a>
-            </li>
-            <li>
-              <a href="tel:+213555555555">+213 555 555 555</a>
-            </li>
-          </ul>
+          <div style={{ marginBottom: '1.5rem' }}>
+            <div className="footer-country">Algérie</div>
+            <ul className="footer-links">
+              <li>
+                <a>Alger, Algérie</a>
+              </li>
+              <li>
+                <a href="mailto:Ho@im-lead.com">Ho@im-lead.com</a>
+              </li>
+              <li>
+                <a href="tel:+213555555555">+213 555 555 555</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <div className="footer-country">Émirats Arabes Unis</div>
+            <ul className="footer-links">
+              <li>
+                <a>Dubai, Émirats Arabes Unis</a>
+              </li>
+              <li>
+                <a href="mailto:Ho@im-lead.com">Ho@im-lead.com</a>
+              </li>
+              <li>
+                <a href="tel:+971555555555">+971 555 555 555</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
