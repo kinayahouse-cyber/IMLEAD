@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const eyebrowStyle = {
   fontFamily: 'var(--font-mono)',
   fontSize: '0.64rem',
@@ -176,9 +178,9 @@ export default function Approche() {
           Entrez les paramètres clés de votre opération. Notre algorithme croise vos données avec les
           ratios du marché pour détecter les risques instantanément.
         </p>
-        <button className="btn-primary">
+        <Link to="/diagnostic" className="btn-primary">
           <span>Démarrer mon audit</span> <span className="btn-dot" />
-        </button>
+        </Link>
       </div>
     </>
   )

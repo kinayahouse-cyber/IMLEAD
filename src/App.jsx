@@ -10,6 +10,7 @@ import Expertise from './pages/Expertise.jsx'
 import Realisations from './pages/Realisations.jsx'
 import Insights from './pages/Insights.jsx'
 import Pourquoi from './pages/Pourquoi.jsx'
+import Diagnostic from './pages/Diagnostic.jsx'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -33,6 +34,7 @@ export default function App() {
         <Route path="/realisations" element={<Realisations />} />
         <Route path="/insights" element={<Insights />} />
         <Route path="/pourquoi" element={<Pourquoi />} />
+        <Route path="/diagnostic" element={<Diagnostic />} />
         <Route path="*" element={<Home />} />
       </Routes>
       <Footer />

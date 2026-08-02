@@ -8,7 +8,7 @@ const PAGES = [
   { to: '/realisations', title: 'Réalisations' },
   { to: '/insights', title: 'Insights' },
   { to: '/pourquoi', title: 'Pourquoi' },
-  { to: '/pourquoi', title: 'Diagnostic' },
+  { to: '/diagnostic', title: 'Diagnostic' },
 ]
 
 export default function PageDots() {
@@ -17,8 +17,8 @@ export default function PageDots() {
 
   return (
     <div className="page-nav hidden md:flex">
-      {PAGES.map((p, i) => {
-        const active = i === PAGES.length - 1 ? false : pathname === p.to
+      {PAGES.map((p) => {
+        const active = pathname === p.to
         return (
           <button
             key={p.title}

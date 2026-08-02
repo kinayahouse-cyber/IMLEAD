@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 export default function Footer() {
   return (
     <footer>
-      <div className="footer-top">
+      <div className="footer-top max-md:!grid-cols-1 max-md:!gap-10">
         <div>
           <div className="footer-logo-wrap">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 717.29 574.57">

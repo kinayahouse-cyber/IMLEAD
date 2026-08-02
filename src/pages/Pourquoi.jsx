@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const eyebrowStyle = {
   fontFamily: 'var(--font-mono)',
@@ -324,9 +325,9 @@ export default function Pourquoi() {
             valeur sur votre opération est d'en discuter directement.
           </p>
           <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
-            <a className="btn-primary">
+            <Link to="/diagnostic" className="btn-primary">
               <span>Obtenir mon diagnostic</span> <span className="btn-dot" />
-            </a>
+            </Link>
             <a className="btn-ghost">Nous contacter directement</a>
           </div>
         </div>

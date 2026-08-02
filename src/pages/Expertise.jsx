@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const eyebrowStyle = {
   fontFamily: 'var(--font-mono)',
   fontSize: '0.64rem',
@@ -180,9 +182,9 @@ export default function Expertise() {
           Votre projet contient probablement des risques <em>non identifiés.</em>
         </h2>
         <p className="audit-cta-sub">Notre algorithme croise vos paramètres avec les ratios du marché.</p>
-        <button className="btn-primary">
+        <Link to="/diagnostic" className="btn-primary">
           <span>Je veux savoir</span> <span className="btn-dot" />
-        </button>
+        </Link>
       </div>
     </div>
   )

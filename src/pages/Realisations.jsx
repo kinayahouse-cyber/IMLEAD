@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const projects = [
   { sector: 'Résidentiel Haut Standing', year: '2022', bg: null },
   { sector: 'Tertiaire · Bureau', year: '2022', bg: 'linear-gradient(135deg, rgb(26, 42, 37) 0%, rgb(13, 31, 28) 100%)' },
@@ -81,9 +83,9 @@ export default function Realisations() {
           Entrez les paramètres clés de votre opération. Notre algorithme détecte les risques
           instantanément.
         </p>
-        <a className="btn-primary">
+        <Link to="/diagnostic" className="btn-primary">
           <span>Obtenir mon diagnostic</span> <span className="btn-dot" />
-        </a>
+        </Link>
       </div>
     </div>
   )

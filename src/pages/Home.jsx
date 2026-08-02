@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const eyebrowStyle = {
   fontFamily: 'var(--font-mono)',
   fontSize: '0.64rem',
@@ -56,9 +58,9 @@ export default function Home() {
             structurons la décision, maîtrisons les risques et protégeons la valeur du projet jusqu'à
             sa livraison.
           </p>
-          <a className="btn-primary anim-text delay-3">
+          <Link to="/diagnostic" className="btn-primary anim-text delay-3">
             <span>Obtenir mon diagnostic →</span>
-          </a>
+          </Link>
           <p className="btn-description anim-text delay-4">
             Confidentiel. Sans engagement. Retour sous 48h ouvrées.
           </p>
@@ -128,9 +130,9 @@ export default function Home() {
             Notre algorithme croise vos paramètres avec les ratios du marché pour détecter les
             dérives potentielles avant qu'elles ne coûtent.
           </p>
-          <a className="btn-primary">
+          <Link to="/diagnostic" className="btn-primary">
             <span>Je veux savoir</span> <span className="btn-dot" />
-          </a>
+          </Link>
         </div>
       </section>
     </div>

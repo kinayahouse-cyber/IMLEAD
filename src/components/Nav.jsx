@@ -45,9 +45,9 @@ export default function Nav() {
           </li>
         ))}
       </ul>
-      <a className="nav-cta hidden md:inline-block" style={{ cursor: 'pointer' }}>
-        Diagnostic
-      </a>
+      <Link to="/diagnostic" className="nav-cta hidden md:inline-block">
+        <span>Diagnostic</span>
+      </Link>
 
       {/* Mobile hamburger — hidden on desktop */}
       <button
@@ -79,9 +79,9 @@ export default function Nav() {
             </NavLink>
           ))}
         </div>
-        <button type="button" className="mob-drawer-cta" onClick={() => setOpen(false)}>
+        <Link to="/diagnostic" className="mob-drawer-cta" onClick={() => setOpen(false)}>
           Obtenir mon diagnostic
-        </button>
+        </Link>
       </div>
     </>
   )
