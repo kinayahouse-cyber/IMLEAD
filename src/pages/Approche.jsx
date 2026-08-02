@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import Reveal from '../components/Reveal.jsx'
 
 const eyebrowStyle = {
   fontFamily: 'var(--font-mono)',
@@ -157,30 +158,32 @@ export default function Approche() {
           </h2>
         </div>
         <div className="timeline-grid !grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-4">
-          {steps.map((s) => (
-            <div className="timeline-step" key={s.num}>
+          {steps.map((s, i) => (
+            <Reveal as="div" className="timeline-step" key={s.num} delay={i * 100}>
               <div className="timeline-step-line" />
               <div className="timeline-step-num">{s.num}</div>
               <div className="timeline-step-title">{s.title}</div>
               <div className="timeline-step-desc">{s.desc}</div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
 
       {/* Audit CTA */}
       <div className="audit-cta-section">
-        <div className="audit-cta-eyebrow">Diagnostic gratuit</div>
-        <h2 className="audit-cta-title">
+        <Reveal as="div" className="audit-cta-eyebrow">Diagnostic gratuit</Reveal>
+        <Reveal as="h2" className="audit-cta-title" delay={80}>
           Votre projet mérite une expertise <em>à la hauteur de ses enjeux.</em>
-        </h2>
-        <p className="audit-cta-sub">
+        </Reveal>
+        <Reveal as="p" className="audit-cta-sub" delay={160}>
           Entrez les paramètres clés de votre opération. Notre algorithme croise vos données avec les
           ratios du marché pour détecter les risques instantanément.
-        </p>
-        <Link to="/diagnostic" className="btn-primary">
-          <span>Démarrer mon audit</span> <span className="btn-dot" />
-        </Link>
+        </Reveal>
+        <Reveal delay={240}>
+          <Link to="/diagnostic" className="btn-primary">
+            <span>Démarrer mon audit</span> <span className="btn-dot" />
+          </Link>
+        </Reveal>
       </div>
     </>
   )

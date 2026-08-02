@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Reveal from '../components/Reveal.jsx'
 
 const eyebrowStyle = {
   fontFamily: 'var(--font-mono)',
@@ -170,13 +171,13 @@ export default function Pourquoi() {
             style={{ backgroundImage: 'url("/assets/HERO_POURQUOI-DaIcA5GR.webp")' }}
           />
         </div>
-        <div className="anim-fade delay-0 absolute top-28 left-8 md:left-20 z-10 flex items-center gap-4">
+        <div className="anim-fade delay-0 absolute top-28 left-8 md:left-16 z-10 flex items-center gap-4">
           <div style={eyebrowStyle}>
             <span style={{ width: '2rem', height: 1, background: 'var(--bronze)', display: 'block' }} />
             POURQUOI IMLEAD
           </div>
         </div>
-        <div className="relative z-10 px-8 md:px-20 pb-20 max-w-4xl">
+        <div className="relative z-10 px-8 md:px-16 pb-16 max-w-4xl">
           <div className="overflow-hidden mb-3">
             <h1 className="anim-text delay-1 font-light text-warm-white" style={titleStyle}>
               L'indépendance
@@ -220,13 +221,13 @@ export default function Pourquoi() {
           <em>caractérise.</em>
         </h2>
         <div className="avantages-grid !grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-3">
-          {avantages.map((a) => (
-            <div className="avantage-card" key={a.num}>
+          {avantages.map((a, i) => (
+            <Reveal as="div" className="avantage-card" key={a.num} delay={(i % 3) * 90}>
               <div className="avantage-num">{a.num}</div>
               <div className="avantage-icon">{a.icon}</div>
               <div className="avantage-title">{a.title}</div>
               <div className="avantage-desc">{a.desc}</div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -255,14 +256,14 @@ export default function Pourquoi() {
             </p>
           </div>
           <div>
-            {valeurs.map((v) => (
-              <div className="valeur-item" key={v.num}>
+            {valeurs.map((v, i) => (
+              <Reveal as="div" className="valeur-item" key={v.num} delay={i * 70}>
                 <div className="valeur-num">{v.num}</div>
                 <div className="valeur-content">
                   <div className="valeur-title">{v.title}</div>
                   <div className="valeur-text">{v.text}</div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -290,7 +291,7 @@ export default function Pourquoi() {
               Pour clarifier notre rôle, notre méthode et les conditions d'intervention.
             </p>
           </div>
-          <div className="faq-list">
+          <Reveal as="div" className="faq-list">
             {faqs.map((f, i) => (
               <div className={`faq-item ${openFaq === i ? 'open' : ''}`} key={i}>
                 <div
@@ -305,7 +306,7 @@ export default function Pourquoi() {
                 </div>
               </div>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 

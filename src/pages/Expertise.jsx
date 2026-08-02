@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import Reveal from '../components/Reveal.jsx'
 
 const eyebrowStyle = {
   fontFamily: 'var(--font-mono)',
@@ -154,7 +155,7 @@ export default function Expertise() {
       <div className="expertise-blocks">
         {blocks.map((b) => (
           <div className="expertise-block max-md:!grid-cols-1" key={b.num}>
-            <div className="expertise-block-content max-md:!order-1">
+            <Reveal as="div" className="expertise-block-content max-md:!order-1">
               <div className="expertise-block-num">{b.num}</div>
               <h2 className="expertise-block-title">
                 {b.title[0]}
@@ -164,27 +165,31 @@ export default function Expertise() {
               <p className="expertise-block-tagline">{b.tagline}</p>
               <p className="expertise-block-desc">{b.desc}</p>
               <a className="btn-dark">Sécuriser cette phase</a>
-            </div>
-            <div
+            </Reveal>
+            <Reveal
+              scale
+              delay={120}
               className="expertise-block-visual max-md:!order-2 max-md:min-h-[260px]"
               style={{ backgroundImage: `url("${b.img}")`, backgroundSize: 'cover' }}
             >
               <div className="expertise-block-visual-label">{b.label}</div>
-            </div>
+            </Reveal>
           </div>
         ))}
       </div>
 
       {/* Audit CTA */}
       <div className="audit-cta-section" style={{ background: 'var(--depth)' }}>
-        <div className="audit-cta-eyebrow">Audit personnalisé</div>
-        <h2 className="audit-cta-title">
+        <Reveal as="div" className="audit-cta-eyebrow">Audit personnalisé</Reveal>
+        <Reveal as="h2" className="audit-cta-title" delay={80}>
           Votre projet contient probablement des risques <em>non identifiés.</em>
-        </h2>
-        <p className="audit-cta-sub">Notre algorithme croise vos paramètres avec les ratios du marché.</p>
-        <Link to="/diagnostic" className="btn-primary">
-          <span>Je veux savoir</span> <span className="btn-dot" />
-        </Link>
+        </Reveal>
+        <Reveal as="p" className="audit-cta-sub" delay={160}>Notre algorithme croise vos paramètres avec les ratios du marché.</Reveal>
+        <Reveal delay={240}>
+          <Link to="/diagnostic" className="btn-primary">
+            <span>Je veux savoir</span> <span className="btn-dot" />
+          </Link>
+        </Reveal>
       </div>
     </div>
   )
