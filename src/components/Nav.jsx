@@ -30,7 +30,7 @@ export default function Nav() {
         <Link to="/" className="nav-logo" aria-label="IMLEAD — Accueil">
         <img
           alt="IMLEAD"
-          src="/assets/logo-C3iXneUp.svg"
+          src="/assets/logo-symbole.svg"
           style={{ height: 36, width: 'auto', display: 'block' }}
         />
       </Link>
