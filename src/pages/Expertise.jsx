@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom'
+import Reveal from '../components/Reveal.jsx'
+
 const eyebrowStyle = {
   fontFamily: 'var(--font-mono)',
   fontSize: '0.64rem',
@@ -15,32 +18,32 @@ const h1Style = {
   fontFamily: 'NeueMachina',
 }
 
-const tags = ['Pilotage & Direction', 'Advisory & Audit', 'Hospitality']
+const tags = ['Direction de projet', 'Conseil & Audit', 'Expertise hôtelière']
 
 const blocks = [
   {
     num: 'A',
-    title: ['Project Management', '& Pilotage Technique'],
-    tagline: 'L\'orchestration complète de vos chantiers.',
-    desc: 'Pilotage technique et maîtrise des Coûts/Délais. Gestion des interfaces complexes (projets mixtes). Suivi de développement pour Promoteurs.',
+    title: ['Direction', 'de projet'],
+    tagline: 'Le pilotage stratégique de vos projets.',
+    desc: "Pilotage stratégique des projets, coordination des parties prenantes et maîtrise des coûts, des délais et des risques. Gestion des interfaces complexes et accompagnement des promoteurs tout au long du développement des opérations.",
     img: '/assets/EXPERTISE_A-D2gd99pD.webp',
-    label: 'Project Management',
+    label: 'Direction de projet',
   },
   {
     num: 'B',
-    title: ['Advisory, Audit', '& Asset Management'],
-    tagline: "Sécuriser l'investissement et valoriser le patrimoine.",
-    desc: 'Audits de projets et reporting investisseurs. Sécurisation du capital. Stratégies de Valorisation : Rénovation, Repositionnement & Transformation.',
+    title: ['Conseil', '& Audit'],
+    tagline: "Auditer, conseiller et créer les conditions d'une décision éclairée.",
+    desc: "Audits stratégiques, techniques et opérationnels, assistance à la décision et reporting investisseurs. Stratégies de valorisation des actifs par la rénovation, le repositionnement et la transformation.",
     img: '/assets/EXPERTISE_B-DZ-F7amE.webp',
-    label: 'Advisory & Assets',
+    label: 'Conseil & Audit',
   },
   {
     num: 'C',
-    title: ['Operations', '& Hospitality Support'],
-    tagline: "Garantir l'excellence opérationnelle et l'ouverture.",
-    desc: 'Assistance à la pré-ouverture. Respect des standards de marque (Brand compliance). Spécificités Luxe & Resorts.',
+    title: ['Expertise Hôtelière', '& Mise en Exploitation'],
+    tagline: "Garantir la conformité aux standards hôteliers et la performance opérationnelle.",
+    desc: "Garantir la conformité des projets aux standards internationaux de l'hôtellerie. Positionnement hôtelier, conformité aux standards de marque, optimisation opérationnelle, accompagnement à la mise en exploitation et expertise en hôtellerie.",
     img: '/assets/EXPERTISE_C-BddyLvYx.webp',
-    label: 'Operations & Hospitality',
+    label: 'Expertise hôtelière',
   },
 ]
 
@@ -89,7 +92,7 @@ export default function Expertise() {
                   className="anim-text delay-2 font-display font-light"
                   style={{ ...h1Style, lineHeight: 1.3, color: 'var(--bronze-light)', fontStyle: 'italic' }}
                 >
-                  une même exigence de maîtrise.
+                  une même exigence.
                 </h1>
               </div>
               <div
@@ -99,8 +102,9 @@ export default function Expertise() {
             </div>
             <div className="lg:max-w-xs lg:text-right">
               <p className="anim-text delay-3 text-body mb-6" style={{ fontSize: '0.85rem', lineHeight: 1.85 }}>
-                IMLEAD couvre les moments critiques du cycle de vie d'un actif immobilier ou hôtelier :
-                décider, piloter, livrer et mettre en exploitation.
+                IMLEAD accompagne les projets immobiliers et hôteliers tout au long de leur cycle de
+                vie, en apportant au maître d'ouvrage les expertises nécessaires à chaque étape de
+                leur développement.
               </p>
               <button
                 className="anim-text delay-4 btn-primary px-6 py-3 text-xs uppercase tracking-wide2"
@@ -151,7 +155,7 @@ export default function Expertise() {
       <div className="expertise-blocks">
         {blocks.map((b) => (
           <div className="expertise-block max-md:!grid-cols-1" key={b.num}>
-            <div className="expertise-block-content max-md:!order-1">
+            <Reveal as="div" className="expertise-block-content max-md:!order-1">
               <div className="expertise-block-num">{b.num}</div>
               <h2 className="expertise-block-title">
                 {b.title[0]}
@@ -161,27 +165,31 @@ export default function Expertise() {
               <p className="expertise-block-tagline">{b.tagline}</p>
               <p className="expertise-block-desc">{b.desc}</p>
               <a className="btn-dark">Sécuriser cette phase</a>
-            </div>
-            <div
+            </Reveal>
+            <Reveal
+              scale
+              delay={120}
               className="expertise-block-visual max-md:!order-2 max-md:min-h-[260px]"
               style={{ backgroundImage: `url("${b.img}")`, backgroundSize: 'cover' }}
             >
               <div className="expertise-block-visual-label">{b.label}</div>
-            </div>
+            </Reveal>
           </div>
         ))}
       </div>
 
       {/* Audit CTA */}
       <div className="audit-cta-section" style={{ background: 'var(--depth)' }}>
-        <div className="audit-cta-eyebrow">Audit personnalisé</div>
-        <h2 className="audit-cta-title">
+        <Reveal as="div" className="audit-cta-eyebrow">Audit personnalisé</Reveal>
+        <Reveal as="h2" className="audit-cta-title" delay={80}>
           Votre projet contient probablement des risques <em>non identifiés.</em>
-        </h2>
-        <p className="audit-cta-sub">Notre algorithme croise vos paramètres avec les ratios du marché.</p>
-        <button className="btn-primary">
-          <span>Je veux savoir</span> <span className="btn-dot" />
-        </button>
+        </Reveal>
+        <Reveal as="p" className="audit-cta-sub" delay={160}>Notre algorithme croise vos paramètres avec les ratios du marché.</Reveal>
+        <Reveal delay={240}>
+          <Link to="/diagnostic" className="btn-primary">
+            <span>Je veux savoir</span> <span className="btn-dot" />
+          </Link>
+        </Reveal>
       </div>
     </div>
   )

@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom'
+import Reveal from '../components/Reveal.jsx'
+
 const projects = [
   { sector: 'Résidentiel Haut Standing', year: '2022', bg: null },
   { sector: 'Tertiaire · Bureau', year: '2022', bg: 'linear-gradient(135deg, rgb(26, 42, 37) 0%, rgb(13, 31, 28) 100%)' },
@@ -56,7 +59,7 @@ export default function Realisations() {
         </div>
         <div className="projects-grid max-md:!grid-cols-1">
           {projects.map((p, i) => (
-            <div className="project-card" key={i}>
+            <Reveal as="div" className="project-card" key={i} delay={(i % 2) * 100}>
               <div className="project-card-img" style={p.bg ? { background: p.bg } : undefined}>
                 <span className="project-card-year">{p.year}</span>
               </div>
@@ -67,23 +70,25 @@ export default function Realisations() {
                   Brève description du projet et de l'enjeu principal.
                 </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
 
       <div className="audit-cta-section">
-        <div className="audit-cta-eyebrow">Diagnostic personnalisé</div>
-        <h2 className="audit-cta-title">
+        <Reveal as="div" className="audit-cta-eyebrow">Diagnostic personnalisé</Reveal>
+        <Reveal as="h2" className="audit-cta-title" delay={80}>
           Votre projet mérite la même <em>rigueur.</em>
-        </h2>
-        <p className="audit-cta-sub">
+        </Reveal>
+        <Reveal as="p" className="audit-cta-sub" delay={160}>
           Entrez les paramètres clés de votre opération. Notre algorithme détecte les risques
           instantanément.
-        </p>
-        <a className="btn-primary">
-          <span>Obtenir mon diagnostic</span> <span className="btn-dot" />
-        </a>
+        </Reveal>
+        <Reveal delay={240}>
+          <Link to="/diagnostic" className="btn-primary">
+            <span>Obtenir mon diagnostic</span> <span className="btn-dot" />
+          </Link>
+        </Reveal>
       </div>
     </div>
   )

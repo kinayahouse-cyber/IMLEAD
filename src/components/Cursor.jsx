@@ -1,7 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
 
+const HOVER_SELECTOR =
+  'a, button, [role="button"], [role="radio"], [role="checkbox"], input, select, textarea, ' +
+  '.service-card, .avantage-card, .project-card, .ins-card, .stat-item, .timeline-step, .page-dot, .opt, .faq-question'
+
 // Bronze dot + trailing ring that follows the pointer. Only mounted on devices
 // with a fine pointer (mouse) so it never interferes with touch on mobile.
+// The ring grows and the dot shrinks over anything interactive, so the
+// cursor itself becomes a piece of feedback instead of a static follower.
 export default function Cursor() {
   const dot = useRef(null)
   const ring = useRef(null)
@@ -36,10 +42,29 @@ export default function Cursor() {
       raf = requestAnimationFrame(loop)
     }
 
+    const setHovering = (on) => {
+      dot.current?.classList.toggle('hovering', on)
+      ring.current?.classList.toggle('hovering', on)
+    }
+
+    const onOver = (e) => {
+      if (e.target.closest?.(HOVER_SELECTOR)) setHovering(true)
+    }
+    const onOut = (e) => {
+      const target = e.target.closest?.(HOVER_SELECTOR)
+      if (!target) return
+      const to = e.relatedTarget
+      if (!to || !target.contains(to)) setHovering(false)
+    }
+
     window.addEventListener('mousemove', onMove)
+    document.addEventListener('mouseover', onOver)
+    document.addEventListener('mouseout', onOut)
     raf = requestAnimationFrame(loop)
     return () => {
       window.removeEventListener('mousemove', onMove)
+      document.removeEventListener('mouseover', onOver)
+      document.removeEventListener('mouseout', onOut)
       cancelAnimationFrame(raf)
     }
   }, [])

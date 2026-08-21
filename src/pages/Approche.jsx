@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom'
+import Reveal from '../components/Reveal.jsx'
+
 const eyebrowStyle = {
   fontFamily: 'var(--font-mono)',
   fontSize: '0.64rem',
@@ -19,23 +22,23 @@ const titleStyle = {
 const steps = [
   {
     num: '01',
-    title: 'Cadrage Stratégique',
+    title: 'Développement Stratégique',
     desc: 'Études de faisabilité, montage juridique et financier, définition programmatique. Nous validons le potentiel avant tout engagement.',
   },
   {
     num: '02',
-    title: 'Conception & Ingénierie',
-    desc: "Sélection des intervenants, pilotage des études et optimisation technique. Nous transformons le concept en plan d'action chiffré.",
+    title: 'Conception & Développement',
+    desc: "Sélection des intervenants, pilotage des études et optimisation technique. Nous transformons le concept en plan d'action.",
   },
   {
     num: '03',
     title: 'Réalisation & Pilotage',
-    desc: 'Supervision stricte du chantier. Nous sommes les garants du respect du budget, du planning et de la qualité d\'exécution.',
+    desc: "Pilotage de l'exécution, coordination des intervenants et suivi de l'avancement. Nous veillons au respect des objectifs de coûts, de délais, de qualité et de conformité définis par le maître d'ouvrage.",
   },
   {
     num: '04',
-    title: 'Réception & Exploitation',
-    desc: "Levée des réserves et accompagnement à l'ouverture. Nous assurons la transition fluide du chantier vers l'opérationnel.",
+    title: 'Réception & Mise en exploitation',
+    desc: "Coordination des opérations de réception, suivi de la levée des réserves et accompagnement à la mise en exploitation. Nous sécurisons la transition entre la phase de réalisation et l'ouverture de l'établissement.",
   },
 ]
 
@@ -88,14 +91,16 @@ export default function Approche() {
 
           <div className="anim-text delay-3 max-w-sm mb-auto ml-auto mr-48 xl:mr-96 hidden lg:block">
             <p className="text-body" style={{ fontSize: '0.8rem', lineHeight: 1.85 }}>
-              IMLEAD n'ajoute pas une couche de reporting. Nous mettons en place le cadre de décision
-              qui permet au maître d'ouvrage de rester stratégique, informé et maître de l'exécution.
+              IMLEAD ne se contente pas d'ajouter un niveau supplémentaire de reporting. Nous mettons
+              en place un cadre de gouvernance et de pilotage permettant au maître d'ouvrage de
+              prendre des décisions éclairées, de conserver une vision stratégique du projet et d'en
+              maîtriser pleinement l'exécution.
             </p>
           </div>
 
           <div className="overflow-hidden mb-3">
             <h1 className="anim-text delay-1 font-display font-light text-warm-white" style={titleStyle}>
-              La gouvernance
+              Une gouvernance
             </h1>
           </div>
           <div className="overflow-hidden mb-3">
@@ -103,7 +108,7 @@ export default function Approche() {
               className="anim-text delay-2 font-display font-light"
               style={{ ...titleStyle, lineHeight: 0.98, color: 'var(--bronze-light)', fontStyle: 'italic' }}
             >
-              qui tient le cap.
+              au service de la réussite des projets.
             </h1>
           </div>
 
@@ -145,38 +150,40 @@ export default function Approche() {
       {/* Timeline */}
       <div className="timeline">
         <div className="timeline-header">
-          <div className="section-tag">Notre méthode</div>
+          <div className="section-tag">Notre démarche d'accompagnement</div>
           <h2 className="section-title">
             Le cycle
             <br />
-            de <em>vie.</em>
+            de <em>vie du projet.</em>
           </h2>
         </div>
         <div className="timeline-grid !grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-4">
-          {steps.map((s) => (
-            <div className="timeline-step" key={s.num}>
+          {steps.map((s, i) => (
+            <Reveal as="div" className="timeline-step" key={s.num} delay={i * 100}>
               <div className="timeline-step-line" />
               <div className="timeline-step-num">{s.num}</div>
               <div className="timeline-step-title">{s.title}</div>
               <div className="timeline-step-desc">{s.desc}</div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
 
       {/* Audit CTA */}
       <div className="audit-cta-section">
-        <div className="audit-cta-eyebrow">Diagnostic gratuit</div>
-        <h2 className="audit-cta-title">
-          Votre projet mérite une <em>lecture experte.</em>
-        </h2>
-        <p className="audit-cta-sub">
+        <Reveal as="div" className="audit-cta-eyebrow">Diagnostic gratuit</Reveal>
+        <Reveal as="h2" className="audit-cta-title" delay={80}>
+          Votre projet mérite une expertise <em>à la hauteur de ses enjeux.</em>
+        </Reveal>
+        <Reveal as="p" className="audit-cta-sub" delay={160}>
           Entrez les paramètres clés de votre opération. Notre algorithme croise vos données avec les
           ratios du marché pour détecter les risques instantanément.
-        </p>
-        <button className="btn-primary">
-          <span>Démarrer mon audit</span> <span className="btn-dot" />
-        </button>
+        </Reveal>
+        <Reveal delay={240}>
+          <Link to="/diagnostic" className="btn-primary">
+            <span>Démarrer mon audit</span> <span className="btn-dot" />
+          </Link>
+        </Reveal>
       </div>
     </>
   )

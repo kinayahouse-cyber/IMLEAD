@@ -14,3 +14,5 @@ yarn-error.log*
 # Generated standalone preview artifacts
 imlead-site.html
 imlead-mobile-preview.html
+.vercel
+.env*

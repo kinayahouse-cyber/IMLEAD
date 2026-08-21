@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import Reveal from '../components/Reveal.jsx'
 
 const eyebrowStyle = {
   fontFamily: 'var(--font-mono)',
@@ -22,7 +24,7 @@ const avantages = [
   {
     num: '01',
     title: 'Indépendance totale',
-    desc: 'Aucun lien capitalistique avec des entreprises de construction, des promoteurs ou des fonds. Nos recommandations ne servent que vos intérêts.',
+    desc: 'Aucun lien capitalistique ou intérêt financier avec les entreprises intervenant sur les projets. Une expertise indépendante au service des intérêts du maître d\'ouvrage.',
     icon: (
       <svg viewBox="0 0 40 40">
         <circle cx="20" cy="20" r="14" />
@@ -32,19 +34,8 @@ const avantages = [
   },
   {
     num: '02',
-    title: 'Séniorité systématique',
-    desc: "Vos dossiers sont traités par des consultants seniors. Pas de stagiaires, pas de délégation descendante. Le niveau d'exigence ne varie pas.",
-    icon: (
-      <svg viewBox="0 0 40 40">
-        <path d="M8 32 L20 8 L32 32" />
-        <path d="M13 24h14" />
-      </svg>
-    ),
-  },
-  {
-    num: '03',
-    title: 'Intervention à toutes les phases',
-    desc: 'Structure légère, décision rapide. Nous nous adaptons à la complexité de votre projet sans les lourdeurs des grands cabinets.',
+    title: "Intervention à toutes les phases d'un projet",
+    desc: "Notre accompagnement couvre l'ensemble du cycle de vie du projet, depuis les études préalables jusqu'à la mise en exploitation, garantissant une vision globale, une gouvernance cohérente et un pilotage continu.",
     icon: (
       <svg viewBox="0 0 40 40">
         <rect x="8" y="8" width="10" height="10" rx="1" />
@@ -55,8 +46,8 @@ const avantages = [
     ),
   },
   {
-    num: '04',
-    title: 'Expertise terrain algérienne',
+    num: '03',
+    title: 'Expertise terrain',
     desc: "Technique, juridique, financier, opérationnel. Nous maîtrisons l'ensemble des dimensions d'un projet complexe pour vous éviter les angles morts.",
     icon: (
       <svg viewBox="0 0 40 40">
@@ -70,7 +61,7 @@ const avantages = [
     ),
   },
   {
-    num: '05',
+    num: '04',
     title: 'Engagement sur les résultats',
     desc: 'Notre succès est indexé sur le vôtre. Chaque décision est analysée à travers le prisme de la rentabilité et de la création de valeur long terme.',
     icon: (
@@ -80,7 +71,7 @@ const avantages = [
     ),
   },
   {
-    num: '06',
+    num: '05',
     title: 'Reporting orienté décision',
     desc: 'Maîtrise des référentiels globaux (opérateurs hôteliers, fonds internationaux, certifications). Nous parlons le langage de vos partenaires.',
     icon: (
@@ -91,24 +82,16 @@ const avantages = [
       </svg>
     ),
   },
-]
-
-const nonItems = [
   {
-    title: "Pas un bureau d'études",
-    desc: 'Nous ne produisons pas les plans techniques à la place des concepteurs. Nous pilotons la cohérence, les interfaces, les arbitrages et la gouvernance.',
-  },
-  {
-    title: 'Pas une entreprise générale',
-    desc: "Nous n'exécutons pas les travaux. Nous supervisons les conditions dans lesquelles l'exécution peut rester conforme aux objectifs du maître d'ouvrage.",
-  },
-  {
-    title: 'Pas un producteur de rapports',
-    desc: 'Nos livrables sont conçus pour décider, arbitrer et agir — pas pour accumuler de la documentation inutile.',
-  },
-  {
-    title: 'Pas un acteur intéressé par les fournisseurs',
-    desc: "Aucun partenariat fournisseur, aucune activité de maîtrise d'œuvre. Notre indépendance est la condition de notre crédibilité.",
+    num: '06',
+    title: 'Proximité, réactivité et engagement',
+    desc: "Une approche fondée sur l'écoute, la disponibilité et un accompagnement personnalisé, favorisant des échanges directs, une prise de décision fluide et une réponse adaptée aux enjeux de chaque projet.",
+    icon: (
+      <svg viewBox="0 0 40 40">
+        <path d="M8 32 L20 8 L32 32" />
+        <path d="M13 24h14" />
+      </svg>
+    ),
   },
 ]
 
@@ -116,50 +99,50 @@ const valeurs = [
   {
     num: '01',
     title: 'Rigueur sans compromis',
-    text: "Chaque chiffre est vérifié. Chaque hypothèse est documentée. Chaque risque est qualifié. La rigueur n'est pas une posture, c'est notre méthode de travail.",
+    text: 'Chaque analyse repose sur des données vérifiées, des hypothèses documentées et une évaluation objective des risques. La rigueur constitue le fondement de notre méthode de travail.',
   },
   {
     num: '02',
     title: 'Transparence totale',
-    text: 'Nous disons ce que nous voyons, même quand c\'est difficile à entendre. Nos rapports ne sont pas des documents de réassurance. Ce sont des outils de décision.',
+    text: "Nous formulons des analyses objectives, étayées et indépendantes, y compris lorsque les constats appellent des arbitrages exigeants. Nos rapports ont vocation à éclairer la décision et à sécuriser les choix du maître d'ouvrage.",
   },
   {
     num: '03',
     title: 'Engagement sur le résultat',
-    text: "Nous ne livrons pas des recommandations. Nous co-construisons des résultats. La frontière entre conseil et exécution n'existe pas chez IMLEAD.",
+    text: "Au-delà des recommandations, nous accompagnons leur mise en œuvre aux côtés du maître d'ouvrage. Notre engagement s'inscrit dans la durée, afin de transformer les orientations stratégiques en résultats concrets.",
   },
   {
     num: '04',
     title: 'Confidentialité absolue',
-    text: "Vos données financières, vos stratégies d'acquisition, vos difficultés opérationnelles restent strictement confidentielles. Toujours.",
+    text: 'Toutes les informations qui nous sont confiées sont traitées dans le respect de la plus stricte confidentialité.',
   },
   {
     num: '05',
     title: 'Proactivité',
-    text: 'Nous anticipons les problèmes avant qu\'ils ne se manifestent. Nos clients ne découvrent pas les mauvaises nouvelles dans les rapports de chantier.',
+    text: "L'anticipation des risques et l'identification précoce des points de vigilance sont au cœur de notre démarche.",
   },
 ]
 
 const faqs = [
   {
-    q: "Quelle est la différence entre IMLEAD et un bureau d'études classique ?",
-    a: 'Un bureau d\'études produit des études. IMLEAD pilote des projets. Nous ne produisons pas de plans — nous coordonnons, arbitrons et garantissons que les bons intervenants produisent les bons livrables au bon moment. Notre rôle est stratégique et opérationnel, pas technique au sens de la production.',
+    q: "Qu'est-ce qu'une Assistance à Maîtrise d'Ouvrage (AMO) ?",
+    a: "L'Assistance à Maîtrise d'Ouvrage (AMO) accompagne le maître d'ouvrage dans la définition, le pilotage et la sécurisation de son projet. Indépendante des intervenants chargés de la conception et de la réalisation, elle coordonne les parties prenantes, facilite la prise de décision et veille au respect des objectifs de coûts, de délais, de qualité et de performance. Son rôle est d'apporter au maître d'ouvrage une vision globale, un pilotage structuré et une gouvernance efficace tout au long du cycle de vie du projet.",
+  },
+  {
+    q: "Comment intervient une Assistance à Maîtrise d'Ouvrage (AMO) dans un projet ?",
+    a: "L'AMO intervient aux côtés du maître d'ouvrage tout au long du cycle de vie du projet. Son accompagnement peut débuter dès les études préalables et se poursuivre jusqu'à la mise en exploitation. À chaque étape, elle apporte une expertise stratégique, coordonne les intervenants, pilote les processus de décision, anticipe les risques et veille au respect des objectifs de coûts, de délais, de qualité et de performance.",
   },
   {
     q: "À quel stade d'un projet pouvez-vous intervenir ?",
-    a: 'En amont idéalement — dès la phase de faisabilité, avant tout engagement financier. Mais nous intervenons également en cours de projet (reprise en crise, renforcement de gouvernance) ou en phase de livraison. Plus tôt nous sommes impliqués, plus la valeur créée est significative.',
+    a: "L'AMO peut intervenir à tout moment du cycle de vie d'un projet. Son accompagnement est particulièrement pertinent dès les phases amont (programmation, études de faisabilité, montage de l'opération et définition des objectifs), où les décisions prises ont le plus fort impact sur les coûts, les délais et la performance du projet. Elle peut également être mobilisée en phase de conception, de consultation, de réalisation, de réception ou de mise en exploitation, ainsi que dans le cadre d'un repositionnement, d'une restructuration ou d'une reprise de projet nécessitant un renforcement de la gouvernance et du pilotage.",
   },
   {
     q: 'Comment garantissez-vous votre indépendance ?',
-    a: "IMLEAD ne détient aucune participation dans des entreprises de construction, d'architecture ou de promotion. Notre modèle économique repose exclusivement sur des honoraires de conseil facturés à nos clients.",
-  },
-  {
-    q: "Travaillez-vous sur des projets en dehors de l'Algérie ?",
-    a: 'Oui. Notre expertise couvre les marchés MENA et nous intervenons sur des projets impliquant des opérateurs et investisseurs internationaux. Notre maîtrise des standards globaux nous permet d\'opérer dans des environnements multiculturels complexes.',
+    a: "L'indépendance d'IMLEAD repose sur l'absence de tout lien capitalistique ou intérêt économique avec les acteurs des projets qu'il accompagne, ainsi que sur une rémunération exclusivement fondée sur des honoraires de conseil.",
   },
   {
     q: 'En quoi consiste votre diagnostic initial ?',
-    a: "C'est une analyse rapide (48-72h) qui croise vos données de projet avec nos référentiels marché pour identifier les risques non visibles, les dérives budgétaires potentielles et les leviers d'optimisation. L'output est un pré-score avec des recommandations actionnables immédiatement.",
+    a: "Le diagnostic initial est une analyse du projet et de son niveau de maturité. Il permet d'identifier les enjeux, les risques, les contraintes et les priorités d'action afin d'orienter le maître d'ouvrage dans ses décisions et de définir le périmètre de notre intervention.",
   },
 ]
 
@@ -188,29 +171,24 @@ export default function Pourquoi() {
             style={{ backgroundImage: 'url("/assets/HERO_POURQUOI-DaIcA5GR.webp")' }}
           />
         </div>
-        <div className="anim-fade delay-0 absolute top-28 left-8 md:left-20 z-10 flex items-center gap-4">
+        <div className="anim-fade delay-0 absolute top-28 left-8 md:left-16 z-10 flex items-center gap-4">
           <div style={eyebrowStyle}>
             <span style={{ width: '2rem', height: 1, background: 'var(--bronze)', display: 'block' }} />
             POURQUOI IMLEAD
           </div>
         </div>
-        <div className="relative z-10 px-8 md:px-20 pb-20 max-w-4xl">
+        <div className="relative z-10 px-8 md:px-16 pb-16 max-w-4xl">
           <div className="overflow-hidden mb-3">
             <h1 className="anim-text delay-1 font-light text-warm-white" style={titleStyle}>
               L'indépendance
             </h1>
           </div>
-          <div className="overflow-hidden mb-3">
-            <h1 className="anim-text delay-2 font-display font-light text-warm-white" style={titleStyle}>
-              au service
-            </h1>
-          </div>
           <div className="overflow-hidden mb-10">
             <h1
-              className="anim-text delay-3 font-display font-light"
+              className="anim-text delay-2 font-display font-light"
               style={{ ...titleStyle, color: 'var(--bronze-light)', fontStyle: 'italic' }}
             >
-              du résultat.
+              au service de la performance.
             </h1>
           </div>
           <div
@@ -218,9 +196,10 @@ export default function Pourquoi() {
             style={{ background: 'var(--bronze)', transformOrigin: 'left center' }}
           />
           <p className="anim-text delay-4 text-body max-w-xl" style={{ fontSize: '0.95rem', lineHeight: 1.95 }}>
-            La différence entre IMLEAD et un prestataire classique tient à une responsabilité : nous ne
-            mesurons pas notre valeur au volume de livrables produits, mais à la qualité des décisions
-            rendues possibles.
+            IMLEAD place l'intérêt du maître d'ouvrage au cœur de chaque mission. Grâce à une expertise
+            indépendante, une gouvernance exigeante et une approche fondée sur l'analyse, nous
+            sécurisons les décisions stratégiques et contribuons à la création de valeur à chaque
+            étape du projet.
           </p>
         </div>
         <div
@@ -235,52 +214,21 @@ export default function Pourquoi() {
 
       {/* Avantages */}
       <section className="avantages-section">
-        <div className="section-tag">Ce qui nous différencie</div>
+        <div className="section-tag">Ce qui nous caractérise</div>
         <h2 className="section-title">
           Ce qui nous
           <br />
-          <em>différencie.</em>
+          <em>caractérise.</em>
         </h2>
         <div className="avantages-grid !grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-3">
-          {avantages.map((a) => (
-            <div className="avantage-card" key={a.num}>
+          {avantages.map((a, i) => (
+            <Reveal as="div" className="avantage-card" key={a.num} delay={(i % 3) * 90}>
               <div className="avantage-num">{a.num}</div>
               <div className="avantage-icon">{a.icon}</div>
               <div className="avantage-title">{a.title}</div>
               <div className="avantage-desc">{a.desc}</div>
-            </div>
+            </Reveal>
           ))}
-        </div>
-      </section>
-
-      {/* Ce qu'IMLEAD n'est pas */}
-      <section className="section" style={{ background: 'var(--structure)', borderTop: '1px solid var(--border)' }}>
-        <div className="section-inner" style={{ maxWidth: 900, margin: '0px auto' }}>
-          <div className="section-tag">Clarification</div>
-          <h2 className="section-title" style={{ marginBottom: '1.5rem' }}>
-            Ce qu'IMLEAD n'est pas.
-          </h2>
-          <p style={{ fontSize: '0.85rem', lineHeight: 1.8, color: 'var(--text-body)', marginBottom: '2rem' }}>
-            Définir notre rôle, c'est aussi clarifier ce que nous ne faisons pas. Cette précision
-            protège le maître d'ouvrage et garantit l'indépendance de notre intervention.
-          </p>
-          <div className="grid grid-cols-2 gap-6 max-md:!grid-cols-1">
-            {nonItems.map((n) => (
-              <div key={n.title} style={{ borderLeft: '2px solid var(--bronze)', paddingLeft: '1.25rem' }}>
-                <div
-                  style={{
-                    fontFamily: 'var(--font-display)',
-                    fontSize: '0.95rem',
-                    color: 'var(--white)',
-                    marginBottom: '0.5rem',
-                  }}
-                >
-                  {n.title}
-                </div>
-                <p style={{ fontSize: '0.78rem', lineHeight: 1.75, color: 'var(--text-body)' }}>{n.desc}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -288,11 +236,11 @@ export default function Pourquoi() {
       <section className="valeurs-section">
         <div className="valeurs-inner !grid-cols-1 lg:!grid-cols-[1fr_1.8fr] max-md:!gap-10">
           <div className="valeurs-sticky">
-            <div className="section-tag">Nos Valeurs</div>
+            <div className="section-tag">Nos principes</div>
             <h2 className="section-title">
-              Ce qui guide
+              Ce qui fonde
               <br />
-              nos <em>consultants.</em>
+              notre <em>approche.</em>
             </h2>
             <p
               style={{
@@ -303,18 +251,19 @@ export default function Pourquoi() {
                 maxWidth: '28ch',
               }}
             >
-              Des principes non négociables, appliqués à chaque mission, quelle qu'en soit la taille.
+              Des principes d'intervention qui guident chacune de nos missions, avec un niveau
+              d'exigence constant, quelle que soit la nature ou l'envergure du projet.
             </p>
           </div>
           <div>
-            {valeurs.map((v) => (
-              <div className="valeur-item" key={v.num}>
+            {valeurs.map((v, i) => (
+              <Reveal as="div" className="valeur-item" key={v.num} delay={i * 70}>
                 <div className="valeur-num">{v.num}</div>
                 <div className="valeur-content">
                   <div className="valeur-title">{v.title}</div>
                   <div className="valeur-text">{v.text}</div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -342,7 +291,7 @@ export default function Pourquoi() {
               Pour clarifier notre rôle, notre méthode et les conditions d'intervention.
             </p>
           </div>
-          <div className="faq-list">
+          <Reveal as="div" className="faq-list">
             {faqs.map((f, i) => (
               <div className={`faq-item ${openFaq === i ? 'open' : ''}`} key={i}>
                 <div
@@ -357,7 +306,7 @@ export default function Pourquoi() {
                 </div>
               </div>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -377,9 +326,9 @@ export default function Pourquoi() {
             valeur sur votre opération est d'en discuter directement.
           </p>
           <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
-            <a className="btn-primary">
+            <Link to="/diagnostic" className="btn-primary">
               <span>Obtenir mon diagnostic</span> <span className="btn-dot" />
-            </a>
+            </Link>
             <a className="btn-ghost">Nous contacter directement</a>
           </div>
         </div>
