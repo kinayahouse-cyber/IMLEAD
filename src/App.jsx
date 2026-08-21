@@ -7,10 +7,12 @@ import PageDots from './components/PageDots.jsx'
 import Home from './pages/Home.jsx'
 import Approche from './pages/Approche.jsx'
 import Expertise from './pages/Expertise.jsx'
-import Realisations from './pages/Realisations.jsx'
-import Insights from './pages/Insights.jsx'
 import Pourquoi from './pages/Pourquoi.jsx'
 import Diagnostic from './pages/Diagnostic.jsx'
+
+// Réalisations and Insights are pulled from routing for now (placeholder
+// content, not ready to publish) — pages/Realisations.jsx and
+// pages/Insights.jsx are left in place to re-enable later.
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -51,8 +53,6 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/approche" element={<Approche />} />
           <Route path="/expertise" element={<Expertise />} />
-          <Route path="/realisations" element={<Realisations />} />
-          <Route path="/insights" element={<Insights />} />
           <Route path="/pourquoi" element={<Pourquoi />} />
           <Route path="/diagnostic" element={<Diagnostic />} />
           <Route path="*" element={<Home />} />

@@ -5,8 +5,6 @@ const PAGES = [
   { to: '/', title: 'Accueil' },
   { to: '/approche', title: 'Approche' },
   { to: '/expertise', title: 'Expertise' },
-  { to: '/realisations', title: 'Réalisations' },
-  { to: '/insights', title: 'Insights' },
   { to: '/pourquoi', title: 'Pourquoi' },
   { to: '/diagnostic', title: 'Diagnostic' },
 ]
